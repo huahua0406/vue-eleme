@@ -1,0 +1,32 @@
+body,html{
+	line-height:1;
+	font-weight:200;
+	font-family:Helvetica, sans-serif;
+}
+.clearfix{
+	&:before,
+	&:after {
+	    content:"";
+	    display: table;
+	  }
+	&:after {
+	    clear:both;
+	    overflow: hidden;
+	}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+	.border-1px{
+		&::after{
+			-webkit-transform:scaleY(.5);
+			transform:scaleY(.5)
+		}
+	}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+	.border-1px{
+		&::after{
+			-webkit-transform:scaleY(.33);
+			transform:scaleY(.33)
+		}
+	}
+}
