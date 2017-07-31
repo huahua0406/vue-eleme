@@ -1,0 +1,38 @@
+//一像素边框
+@mixin border-1px($color) {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-bottom: 1px solid $color;
+  }
+}
+//
+@mixin border-none{
+	&::after{
+		display:none;
+	}
+}
+//清除浮动
+@mixin clearfix() {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+//引入@2x~@3x背景图
+@mixin bg-image($url) {
+  background-image: url('../../assets/'+$url+'@2x.png');
+  @media(-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio:3) {
+    background-image: url('../../assets/'+$url+'@3x.png')
+  }
+}
